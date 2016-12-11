@@ -26,7 +26,7 @@ def build_patches(n2i, sm):
     return patches
 
 
-def plot_graph(g, label_nodes=True, label_edges=False):
+def plot_graph(g, label_nodes=True, label_edges=False, figsize=(15,15)):
     """
 
     :param g:
@@ -40,7 +40,7 @@ def plot_graph(g, label_nodes=True, label_edges=False):
     cNorm  = colors.Normalize(vmin=0, vmax=len(node_to_int)+1)
     scalarMap = cmx.ScalarMappable(norm=cNorm, cmap=cmap)
 
-    plt.figure(figsize=(15,15))
+    plt.figure(figsize=figsize)
     plt.legend(handles=build_patches(node_to_int, scalarMap))
 
     pos = nx.spring_layout(g, iterations=100)
